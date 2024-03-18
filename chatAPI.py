@@ -97,10 +97,13 @@ def procesar(msj:Msj):
             messages=[
                 {"role": "system", "content": rol},
                 {"role": "user", "content": query}],
-            max_tokens=400,
+            max_tokens=1000,
             temperature=0.8,
             #stream=True,
         )
         print(stream.choices[0].message.content)
 
         return [{"type": "SERVICIO", "mensaje": stream.choices[0].message.content}]
+    else:
+        return [{"type": "No found", "mensaje": "las opciones para 'type' son: 'SERVICIO' e 'ISO'"}]
+
