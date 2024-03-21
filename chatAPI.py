@@ -105,5 +105,5 @@ def procesar(msj:Msj):
 
         return [{"type": "SERVICIO", "mensaje": stream.choices[0].message.content}]
     else:
-        return [{"type": "No found", "mensaje": "las opciones para 'type' son: 'SERVICIO' e 'ISO'"}]
+        return {"type": "No found", "mensaje": "las opciones para 'type' son: 'SERVICIO' e 'ISO'"}
 
