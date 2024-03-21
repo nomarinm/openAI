@@ -74,7 +74,7 @@ def procesar(msj:Msj):
         )
         print(stream.choices[0].message.content)
 
-        return [{"type":"ISO","mensaje":stream.choices[0].message.content}]
+        return {"type":"ISO","mensaje":stream.choices[0].message.content}
     if mens["type"] == "SERVICIO":
         prompt = mens["mensaje"]
         dat = buscar(prompt, datos_SERV, 2)
@@ -103,7 +103,7 @@ def procesar(msj:Msj):
         )
         print(stream.choices[0].message.content)
 
-        return [{"type": "SERVICIO", "mensaje": stream.choices[0].message.content}]
+        return {"type": "SERVICIO", "mensaje": stream.choices[0].message.content}
     else:
         return {"type": "No found", "mensaje": "las opciones para 'type' son: 'SERVICIO' e 'ISO'"}
 
