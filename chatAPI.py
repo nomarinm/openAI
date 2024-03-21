@@ -62,7 +62,7 @@ def procesar(msj:Msj):
         {prompt}
         \"\"\" 
         """
-        rol = "Eres EMMA creada por Ingenieros de InproExt, un asistente experto en la norma iso 9001. Tu objetivo es proporcionar respuestas claras y precisas, con un límite máximo de 70 palabras"
+        rol = "Eres EMMA creada por Ingenieros de InproExt, un asistente experto en la norma iso 9001. Tu objetivo es proporcionar respuestas claras y precisas, con un límite máximo de 30 palabras"
         stream = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
@@ -91,7 +91,7 @@ def procesar(msj:Msj):
         {prompt}
         \"\"\" 
         """
-        rol = "Eres EMMA, creada por Ingenieros de InproExt, un asistente experto en servicio al cliente. Tu objetivo es proporcionar respuestas claras y precisas, con un límite máximo de 50 palabras"
+        rol = "Eres EMMA, creada por Ingenieros de InproExt, un asistente experto en servicio al cliente. Tu objetivo es proporcionar respuestas claras y precisas, con un límite máximo de 30 palabras"
         stream = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
