@@ -48,7 +48,7 @@ class Msj(BaseModel):
 msj = Msj
 @app.get("/")
 def inicio():
-    return {"message": "Esta es una Api para realizar consultas a OpenAI"}
+    return {"message": "Esta es una Api para realizar consultas a OPEN_AI"}
 
 
 @app.post("/consulta")
