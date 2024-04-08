@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Text
 import ast
@@ -6,12 +7,10 @@ import os
 import pandas as pd
 import numpy as np
 from openai import OpenAI
-
 from dotenv import load_dotenv
 load_dotenv()
 path_file1 = "iso9001.csv"
 datos_ISO = pd.read_csv(path_file1)
-
 path_file2 = "FDSA.csv"
 datos_SERV = pd.read_csv(path_file2)
 client = OpenAI(
@@ -30,6 +29,16 @@ def buscar(busqueda, datos, n_resultados=5):
     datos = datos.sort_values("Similitud", ascending=False)
     return datos.iloc[:n_resultados][["texto", "Similitud", "Embedding"]]
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 
 msj = []
 class Msj(BaseModel):
